@@ -1,0 +1,262 @@
+{
+  // 🏛️ Nefer E-commerce VS Code Settings
+  
+  // =============================================================================
+  // DART & FLUTTER SETTINGS
+  // =============================================================================
+  
+  "dart.flutterSdkPath": null,
+  "dart.debugExternalPackageLibraries": true,
+  "dart.debugSdkLibraries": false,
+  "dart.previewLsp": true,
+  "dart.lineLength": 80,
+  "dart.insertArgumentPlaceholders": false,
+  "dart.showTodos": true,
+  "dart.runPubGetOnPubspecChanges": true,
+  "dart.warnWhenEditingFilesOutsideWorkspace": true,
+  "dart.allowAnalytics": false,
+  "dart.checkForSdkUpdates": true,
+  "dart.showInspectorNotificationsForWidgetErrors": true,
+  
+  // Flutter specific
+  "dart.flutterCreateAndroidLanguage": "kotlin",
+  "dart.flutterCreateIOSLanguage": "swift",
+  "dart.flutterCreateOrganization": "com.nefer.ecommerce",
+  "dart.flutterHotReloadOnSave": "always",
+  "dart.flutterHotRestartOnSave": "never",
+  
+  // =============================================================================
+  // EDITOR SETTINGS
+  // =============================================================================
+  
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.showFoldingControls": "always",
+  "editor.foldingStrategy": "indentation",
+  "editor.minimap.enabled": true,
+  "editor.minimap.maxColumn": 80,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  
+  // =============================================================================
+  // FILE ASSOCIATIONS
+  // =============================================================================
+  
+  "files.associations": {
+    "*.dart": "dart",
+    "*.yaml": "yaml",
+    "*.yml": "yaml",
+    "*.json": "jsonc",
+    "*.arb": "json",
+    "Dockerfile*": "dockerfile",
+    "*.env*": "properties"
+  },
+  
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/.packages": true,
+    "**/build": true,
+    "**/.flutter-plugins": true,
+    "**/.flutter-plugins-dependencies": true,
+    "**/generated_plugin_registrant.dart": true,
+    "**/.firebase": true,
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  
+  "files.watcherExclude": {
+    "**/.dart_tool/**": true,
+    "**/build/**": true,
+    "**/.firebase/**": true,
+    "**/node_modules/**": true
+  },
+  
+  // =============================================================================
+  // SEARCH SETTINGS
+  // =============================================================================
+  
+  "search.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true,
+    "**/.firebase": true,
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/*.lock": true
+  },
+  
+  // =============================================================================
+  // TERMINAL SETTINGS
+  // =============================================================================
+  
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  
+  // =============================================================================
+  // EXTENSION SETTINGS
+  // =============================================================================
+  
+  // Git
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.showPushSuccessNotification": true,
+  
+  // JSON
+  "json.format.enable": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["pubspec.yaml"],
+      "url": "https://json.schemastore.org/pubspec.json"
+    },
+    {
+      "fileMatch": ["firebase.json"],
+      "url": "https://json.schemastore.org/firebase.json"
+    }
+  ],
+  
+  // YAML
+  "yaml.format.enable": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+  
+  // Markdown
+  "markdown.preview.fontSize": 14,
+  "markdown.preview.lineHeight": 1.6,
+  
+  // =============================================================================
+  // LANGUAGE SPECIFIC SETTINGS
+  // =============================================================================
+  
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "editor.defaultFormatter": "Dart-Code.dart-code"
+  },
+  
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.autoIndent": "advanced"
+  },
+  
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  
+  // =============================================================================
+  // WORKSPACE SPECIFIC SETTINGS
+  // =============================================================================
+  
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "pubspec.yaml": "pubspec.lock,.packages,.dart_tool,.flutter-plugins,.flutter-plugins-dependencies,generated_plugin_registrant.dart",
+    "*.dart": "${capture}.g.dart,${capture}.freezed.dart,${capture}.mocks.dart",
+    "firebase.json": ".firebaserc,firebase.indexes.json,firestore.rules,firestore.indexes.json,storage.rules,database.rules.json",
+    "docker-compose.yml": "docker-compose.*.yml,Dockerfile*,.dockerignore",
+    ".env": ".env.*",
+    "README.md": "CHANGELOG.md,LICENSE,CONTRIBUTING.md"
+  },
+  
+  // =============================================================================
+  // DEBUGGING SETTINGS
+  // =============================================================================
+  
+  "debug.allowBreakpointsEverywhere": true,
+  "debug.showInStatusBar": "always",
+  "debug.console.fontSize": 12,
+  "debug.console.lineHeight": 18,
+  
+  // =============================================================================
+  // PERFORMANCE SETTINGS
+  // =============================================================================
+  
+  "extensions.ignoreRecommendations": false,
+  "telemetry.telemetryLevel": "off",
+  "update.showReleaseNotes": false,
+  "workbench.startupEditor": "readme",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  
+  // =============================================================================
+  // CUSTOM SETTINGS FOR NEFER PROJECT
+  // =============================================================================
+  
+  "emmet.includeLanguages": {
+    "dart": "html"
+  },
+  
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "HACK",
+    "NOTE",
+    "BUG",
+    "REVIEW",
+    "OPTIMIZE"
+  ],
+  
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "tag",
+    "foreground": "red",
+    "background": "white",
+    "opacity": 50,
+    "iconColour": "blue"
+  },
+  
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "foreground": "black",
+      "iconColour": "yellow",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "foreground": "red",
+      "iconColour": "red",
+      "gutterIcon": true
+    },
+    "NOTE": {
+      "icon": "note",
+      "foreground": "blue",
+      "iconColour": "blue",
+      "gutterIcon": true
+    }
+  }
+}

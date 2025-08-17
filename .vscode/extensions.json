@@ -1,0 +1,109 @@
+{
+  // 🏛️ Nefer E-commerce Recommended VS Code Extensions
+  "recommendations": [
+    // =============================================================================
+    // DART & FLUTTER EXTENSIONS (Essential)
+    // =============================================================================
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    
+    // =============================================================================
+    // FIREBASE & CLOUD EXTENSIONS
+    // =============================================================================
+    "toba.vsfire",
+    "bradlc.vscode-tailwindcss",
+    
+    // =============================================================================
+    // CODE QUALITY & FORMATTING
+    // =============================================================================
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "davidanson.vscode-markdownlint",
+    "streetsidesoftware.code-spell-checker",
+    "gruntfuggly.todo-tree",
+    
+    // =============================================================================
+    // GIT & VERSION CONTROL
+    // =============================================================================
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "github.copilot",
+    "github.copilot-chat",
+    
+    // =============================================================================
+    // DOCKER & CONTAINERS
+    // =============================================================================
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    
+    // =============================================================================
+    // PRODUCTIVITY & UI
+    // =============================================================================
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+    "aaron-bond.better-comments",
+    "alefragnani.bookmarks",
+    "formulahendry.auto-rename-tag",
+    "ms-vscode.vscode-typescript-next",
+    
+    // =============================================================================
+    // TESTING & DEBUGGING
+    // =============================================================================
+    "hbenl.vscode-test-explorer",
+    "ms-vscode.test-adapter-converter",
+    
+    // =============================================================================
+    // API & REST CLIENT
+    // =============================================================================
+    "humao.rest-client",
+    "42crunch.vscode-openapi",
+    
+    // =============================================================================
+    // DOCUMENTATION
+    // =============================================================================
+    "yzhang.markdown-all-in-one",
+    "shd101wyy.markdown-preview-enhanced",
+    "bierner.markdown-mermaid",
+    
+    // =============================================================================
+    // LANGUAGE SUPPORT
+    // =============================================================================
+    "ms-ceintl.vscode-language-pack-ar",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-xml",
+    
+    // =============================================================================
+    // UTILITIES
+    // =============================================================================
+    "christian-kohler.path-intellisense",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-vscode.vscode-json",
+    "bradlc.vscode-tailwindcss",
+    "formulahendry.code-runner",
+    
+    // =============================================================================
+    // THEME & APPEARANCE
+    // =============================================================================
+    "equinusocio.vsc-material-theme",
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+    
+    // =============================================================================
+    // OPTIONAL BUT USEFUL
+    // =============================================================================
+    "ms-vscode.powershell",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-wsl",
+    "ms-python.python",
+    "ms-toolsai.jupyter"
+  ],
+  
+  // Extensions that should not be recommended
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify",
+    "ms-vscode.vscode-css",
+    "ms-vscode.vscode-html"
+  ]
+}

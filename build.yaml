@@ -1,0 +1,115 @@
+targets:
+  $default:
+    builders:
+      # Freezed code generation
+      freezed:
+        enabled: true
+        generate_for:
+          - lib/**/*.dart
+        options:
+          # Generate copyWith methods
+          copy_with: true
+          # Generate equality methods
+          equal: true
+          # Generate toString methods
+          to_string: true
+          # Generate map methods
+          map: true
+          # Generate when methods
+          when: true
+          # Generate maybeWhen methods
+          maybe_when: true
+          # Generate fromJson/toJson methods
+          from_json: true
+          to_json: true
+
+      # JSON Serialization
+      json_serializable:
+        enabled: true
+        generate_for:
+          - lib/**/*.dart
+        options:
+          # Generate nullable fields
+          nullable: true
+          # Use explicit toJson
+          explicit_to_json: true
+          # Include if null
+          include_if_null: false
+          # Field rename
+          field_rename: snake_case
+          # Constructor name
+          constructor: _
+          # Create factory
+          create_factory: true
+          # Create to json
+          create_to_json: true
+          # Disallow unrecognized keys
+          disallow_unrecognized_keys: false
+          # Checked mode
+          checked: true
+          # Generic argument factories
+          generic_argument_factories: true
+
+      # Riverpod code generation
+      riverpod_generator:
+        enabled: true
+        generate_for:
+          - lib/**/*.dart
+        options:
+          # Generate keepAlive
+          keep_alive: false
+          # Generate dependencies
+          dependencies: true
+
+      # Go Router code generation
+      go_router_builder:
+        enabled: true
+        generate_for:
+          - lib/core/routing/app_router.dart
+        options:
+          # Generate type-safe routes
+          type_safe: true
+
+      # Asset generation
+      flutter_gen:
+        enabled: true
+        generate_for:
+          - pubspec.yaml
+        options:
+          # Output directory
+          output: lib/generated/
+          # Line length
+          line_length: 80
+          # Integrations
+          integrations:
+            flutter_svg: true
+            flare_flutter: false
+            rive: true
+            lottie: true
+
+global_options:
+  # Build extensions
+  build_extensions:
+    .dart:
+      - .g.dart
+      - .freezed.dart
+      - .gr.dart
+
+  # Build filters
+  build_filters:
+    # Exclude test files from code generation
+    - exclude: "test/**"
+    - exclude: "integration_test/**"
+    - exclude: "**/*.mocks.dart"
+
+  # Reader options
+  reader_options:
+    # Dart SDK version
+    dart_sdk_version: ">=3.2.0 <4.0.0"
+
+  # Builder options
+  builder_options:
+    # Enable null safety
+    null_safety: true
+    # Language version
+    language_version: "3.2"

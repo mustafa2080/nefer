@@ -1,0 +1,300 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    
+    // Users data with role-based access
+    "users": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid == $uid || auth.token.role == 'admin')",
+        ".write": "auth != null && (auth.uid == $uid || auth.token.role == 'admin')",
+        ".validate": "newData.hasChildren(['uid', 'email', 'role'])",
+        
+        "uid": {
+          ".validate": "newData.isString() && newData.val() == $uid"
+        },
+        
+        "email": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$/)"
+        },
+        
+        "role": {
+          ".validate": "newData.hasChildren(['id', 'name', 'level']) && (auth.token.role == 'admin' || (auth.uid == $uid && newData.child('id').val() == 'user'))"
+        },
+        
+        "profile": {
+          ".read": "auth != null && (auth.uid == $uid || auth.token.role == 'admin')",
+          ".write": "auth != null && (auth.uid == $uid || auth.token.role == 'admin')"
+        },
+        
+        "preferences": {
+          ".read": "auth != null && auth.uid == $uid",
+          ".write": "auth != null && auth.uid == $uid"
+        },
+        
+        "status": {
+          ".read": "auth != null && (auth.uid == $uid || auth.token.role == 'admin')",
+          ".write": "auth != null && auth.token.role == 'admin'"
+        }
+      }
+    },
+    
+    // Products - read for all, write for admin only
+    "products": {
+      ".read": true,
+      ".indexOn": ["categoryId", "status", "featured", "createdAt"],
+      
+      "$productId": {
+        ".write": "auth != null && auth.token.role == 'admin'",
+        ".validate": "newData.hasChildren(['id', 'name', 'pricing', 'inventory'])",
+        
+        "id": {
+          ".validate": "newData.isString() && newData.val() == $productId"
+        },
+        
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        
+        "pricing": {
+          ".validate": "newData.hasChildren(['price']) && newData.child('price').isNumber() && newData.child('price').val() >= 0"
+        },
+        
+        "inventory": {
+          ".validate": "newData.hasChildren(['quantity']) && newData.child('quantity').isNumber() && newData.child('quantity').val() >= 0"
+        },
+        
+        "status": {
+          ".validate": "newData.isString() && ['active', 'inactive', 'draft', 'archived'].indexOf(newData.val()) >= 0"
+        }
+      }
+    },
+    
+    // Categories - read for all, write for admin only
+    "categories": {
+      ".read": true,
+      ".write": "auth != null && auth.token.role == 'admin'",
+      ".indexOn": ["parentId", "order", "status"],
+      
+      "$categoryId": {
+        ".validate": "newData.hasChildren(['id', 'name'])",
+        
+        "id": {
+          ".validate": "newData.isString() && newData.val() == $categoryId"
+        },
+        
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        }
+      }
+    },
+    
+    // Shopping carts - user can only access their own cart
+    "carts": {
+      "$userId": {
+        ".read": "auth != null && (auth.uid == $userId || auth.token.role == 'admin')",
+        ".write": "auth != null && (auth.uid == $userId || auth.token.role == 'admin')",
+        ".validate": "newData.hasChildren(['userId', 'items'])",
+        
+        "userId": {
+          ".validate": "newData.isString() && newData.val() == $userId"
+        },
+        
+        "items": {
+          "$itemId": {
+            ".validate": "newData.hasChildren(['productId', 'quantity', 'price']) && newData.child('quantity').isNumber() && newData.child('quantity').val() > 0"
+          }
+        }
+      }
+    },
+    
+    // Orders - user can read their own orders, admin can read all
+    "orders": {
+      ".indexOn": ["userId", "status", "createdAt"],
+      
+      "$orderId": {
+        ".read": "auth != null && (data.child('userId').val() == auth.uid || auth.token.role == 'admin')",
+        ".write": "auth != null && (data.child('userId').val() == auth.uid || auth.token.role == 'admin')",
+        ".validate": "newData.hasChildren(['id', 'userId', 'items', 'status'])",
+        
+        "id": {
+          ".validate": "newData.isString() && newData.val() == $orderId"
+        },
+        
+        "userId": {
+          ".validate": "newData.isString() && (newData.val() == auth.uid || auth.token.role == 'admin')"
+        },
+        
+        "status": {
+          ".validate": "newData.isString() && ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'].indexOf(newData.val()) >= 0"
+        },
+        
+        "items": {
+          "$itemId": {
+            ".validate": "newData.hasChildren(['productId', 'quantity', 'price'])"
+          }
+        }
+      }
+    },
+    
+    // Reviews - users can write reviews for products they purchased
+    "reviews": {
+      ".indexOn": ["productId", "userId", "rating", "createdAt"],
+      
+      "$reviewId": {
+        ".read": true,
+        ".write": "auth != null && (auth.uid == newData.child('userId').val() || auth.token.role == 'admin')",
+        ".validate": "newData.hasChildren(['id', 'productId', 'userId', 'rating', 'comment'])",
+        
+        "id": {
+          ".validate": "newData.isString() && newData.val() == $reviewId"
+        },
+        
+        "productId": {
+          ".validate": "newData.isString() && root.child('products').child(newData.val()).exists()"
+        },
+        
+        "userId": {
+          ".validate": "newData.isString() && (newData.val() == auth.uid || auth.token.role == 'admin')"
+        },
+        
+        "rating": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5"
+        },
+        
+        "comment": {
+          ".validate": "newData.isString() && newData.val().length <= 1000"
+        }
+      }
+    },
+    
+    // Coupons - read for authenticated users, write for admin only
+    "coupons": {
+      ".read": "auth != null",
+      ".write": "auth != null && auth.token.role == 'admin'",
+      ".indexOn": ["code", "status", "validFrom", "validTo"],
+      
+      "$couponId": {
+        ".validate": "newData.hasChildren(['id', 'code', 'type', 'value'])",
+        
+        "code": {
+          ".validate": "newData.isString() && newData.val().length >= 3"
+        },
+        
+        "type": {
+          ".validate": "newData.isString() && ['percentage', 'fixed'].indexOf(newData.val()) >= 0"
+        },
+        
+        "value": {
+          ".validate": "newData.isNumber() && newData.val() > 0"
+        },
+        
+        "status": {
+          ".validate": "newData.isString() && ['active', 'inactive', 'expired'].indexOf(newData.val()) >= 0"
+        }
+      }
+    },
+    
+    // Flash sales - read for all, write for admin only
+    "flash_sales": {
+      ".read": true,
+      ".write": "auth != null && auth.token.role == 'admin'",
+      ".indexOn": ["status", "startTime", "endTime"],
+      
+      "$saleId": {
+        ".validate": "newData.hasChildren(['id', 'name', 'startTime', 'endTime', 'products'])",
+        
+        "startTime": {
+          ".validate": "newData.isNumber()"
+        },
+        
+        "endTime": {
+          ".validate": "newData.isNumber() && newData.val() > newData.parent().child('startTime').val()"
+        }
+      }
+    },
+    
+    // Wishlists - user can only access their own wishlist
+    "wishlists": {
+      "$userId": {
+        ".read": "auth != null && (auth.uid == $userId || auth.token.role == 'admin')",
+        ".write": "auth != null && (auth.uid == $userId || auth.token.role == 'admin')",
+        
+        "items": {
+          "$productId": {
+            ".validate": "root.child('products').child($productId).exists()"
+          }
+        }
+      }
+    },
+    
+    // Notifications - user can read their own notifications, admin can read all
+    "notifications": {
+      "$userId": {
+        ".read": "auth != null && (auth.uid == $userId || auth.token.role == 'admin')",
+        ".write": "auth != null && auth.token.role == 'admin'",
+        ".indexOn": ["isRead", "createdAt", "type"],
+        
+        "$notificationId": {
+          ".validate": "newData.hasChildren(['id', 'userId', 'title', 'message', 'type'])"
+        }
+      }
+    },
+    
+    // Analytics - admin only
+    "analytics": {
+      ".read": "auth != null && auth.token.role == 'admin'",
+      ".write": "auth != null && auth.token.role == 'admin'"
+    },
+    
+    // App configuration - read for all, write for admin only
+    "app_config": {
+      ".read": true,
+      ".write": "auth != null && auth.token.role == 'admin'",
+      
+      "maintenance_mode": {
+        ".validate": "newData.isBoolean()"
+      },
+      
+      "app_version": {
+        ".validate": "newData.hasChildren(['ios', 'android']) && newData.child('ios').isString() && newData.child('android').isString()"
+      },
+      
+      "feature_flags": {
+        "$flag": {
+          ".validate": "newData.isBoolean()"
+        }
+      }
+    },
+    
+    // Admin logs - admin only
+    "admin_logs": {
+      ".read": "auth != null && auth.token.role == 'admin'",
+      ".write": "auth != null && auth.token.role == 'admin'",
+      ".indexOn": ["adminId", "action", "timestamp"],
+      
+      "$logId": {
+        ".validate": "newData.hasChildren(['id', 'adminId', 'action', 'timestamp'])"
+      }
+    },
+    
+    // Support tickets - user can read their own tickets, admin can read all
+    "support_tickets": {
+      ".indexOn": ["userId", "status", "priority", "createdAt"],
+      
+      "$ticketId": {
+        ".read": "auth != null && (data.child('userId').val() == auth.uid || auth.token.role == 'admin')",
+        ".write": "auth != null && (data.child('userId').val() == auth.uid || auth.token.role == 'admin')",
+        ".validate": "newData.hasChildren(['id', 'userId', 'subject', 'status'])",
+        
+        "userId": {
+          ".validate": "newData.isString() && (newData.val() == auth.uid || auth.token.role == 'admin')"
+        },
+        
+        "status": {
+          ".validate": "newData.isString() && ['open', 'in_progress', 'resolved', 'closed'].indexOf(newData.val()) >= 0"
+        }
+      }
+    }
+  }
+}

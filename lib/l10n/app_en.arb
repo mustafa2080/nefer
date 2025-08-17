@@ -1,0 +1,434 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2024-01-01T00:00:00.000Z",
+  
+  "appTitle": "Nefer",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  
+  "appSubtitle": "Marketplace of the Pharaohs",
+  "@appSubtitle": {
+    "description": "The subtitle of the application"
+  },
+  
+  "welcome": "Welcome to Nefer",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  
+  "signIn": "Sign In",
+  "@signIn": {
+    "description": "Sign in button text"
+  },
+  
+  "signUp": "Sign Up",
+  "@signUp": {
+    "description": "Sign up button text"
+  },
+  
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Confirm password field label"
+  },
+  
+  "fullName": "Full Name",
+  "@fullName": {
+    "description": "Full name field label"
+  },
+  
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+  
+  "resetPassword": "Reset Password",
+  "@resetPassword": {
+    "description": "Reset password button text"
+  },
+  
+  "home": "Home",
+  "@home": {
+    "description": "Home tab label"
+  },
+  
+  "categories": "Categories",
+  "@categories": {
+    "description": "Categories tab label"
+  },
+  
+  "products": "Products",
+  "@products": {
+    "description": "Products page title"
+  },
+  
+  "cart": "Cart",
+  "@cart": {
+    "description": "Shopping cart label"
+  },
+  
+  "wishlist": "Wishlist",
+  "@wishlist": {
+    "description": "Wishlist tab label"
+  },
+  
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile tab label"
+  },
+  
+  "search": "Search",
+  "@search": {
+    "description": "Search placeholder text"
+  },
+  
+  "searchProducts": "Search products...",
+  "@searchProducts": {
+    "description": "Search products placeholder"
+  },
+  
+  "addToCart": "Add to Cart",
+  "@addToCart": {
+    "description": "Add to cart button text"
+  },
+  
+  "buyNow": "Buy Now",
+  "@buyNow": {
+    "description": "Buy now button text"
+  },
+  
+  "checkout": "Checkout",
+  "@checkout": {
+    "description": "Checkout button text"
+  },
+  
+  "orders": "Orders",
+  "@orders": {
+    "description": "Orders page title"
+  },
+  
+  "orderHistory": "Order History",
+  "@orderHistory": {
+    "description": "Order history page title"
+  },
+  
+  "flashSales": "Flash Sales",
+  "@flashSales": {
+    "description": "Flash sales page title"
+  },
+  
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+  
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme setting label"
+  },
+  
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Notifications setting label"
+  },
+  
+  "privacy": "Privacy",
+  "@privacy": {
+    "description": "Privacy setting label"
+  },
+  
+  "help": "Help",
+  "@help": {
+    "description": "Help page title"
+  },
+  
+  "contactUs": "Contact Us",
+  "@contactUs": {
+    "description": "Contact us page title"
+  },
+  
+  "about": "About",
+  "@about": {
+    "description": "About page title"
+  },
+  
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout button text"
+  },
+  
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button text"
+  },
+  
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading indicator text"
+  },
+  
+  "error": "Error",
+  "@error": {
+    "description": "Error message title"
+  },
+  
+  "success": "Success",
+  "@success": {
+    "description": "Success message title"
+  },
+  
+  "warning": "Warning",
+  "@warning": {
+    "description": "Warning message title"
+  },
+  
+  "info": "Info",
+  "@info": {
+    "description": "Info message title"
+  },
+  
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  
+  "noResults": "No results found",
+  "@noResults": {
+    "description": "No results message"
+  },
+  
+  "emptyCart": "Your cart is empty",
+  "@emptyCart": {
+    "description": "Empty cart message"
+  },
+  
+  "emptyWishlist": "Your wishlist is empty",
+  "@emptyWishlist": {
+    "description": "Empty wishlist message"
+  },
+  
+  "price": "Price",
+  "@price": {
+    "description": "Price label"
+  },
+  
+  "quantity": "Quantity",
+  "@quantity": {
+    "description": "Quantity label"
+  },
+  
+  "total": "Total",
+  "@total": {
+    "description": "Total label"
+  },
+  
+  "subtotal": "Subtotal",
+  "@subtotal": {
+    "description": "Subtotal label"
+  },
+  
+  "shipping": "Shipping",
+  "@shipping": {
+    "description": "Shipping label"
+  },
+  
+  "tax": "Tax",
+  "@tax": {
+    "description": "Tax label"
+  },
+  
+  "discount": "Discount",
+  "@discount": {
+    "description": "Discount label"
+  },
+  
+  "coupon": "Coupon",
+  "@coupon": {
+    "description": "Coupon label"
+  },
+  
+  "applyCoupon": "Apply Coupon",
+  "@applyCoupon": {
+    "description": "Apply coupon button text"
+  },
+  
+  "address": "Address",
+  "@address": {
+    "description": "Address label"
+  },
+  
+  "shippingAddress": "Shipping Address",
+  "@shippingAddress": {
+    "description": "Shipping address label"
+  },
+  
+  "billingAddress": "Billing Address",
+  "@billingAddress": {
+    "description": "Billing address label"
+  },
+  
+  "paymentMethod": "Payment Method",
+  "@paymentMethod": {
+    "description": "Payment method label"
+  },
+  
+  "creditCard": "Credit Card",
+  "@creditCard": {
+    "description": "Credit card payment method"
+  },
+  
+  "paypal": "PayPal",
+  "@paypal": {
+    "description": "PayPal payment method"
+  },
+  
+  "applePay": "Apple Pay",
+  "@applePay": {
+    "description": "Apple Pay payment method"
+  },
+  
+  "googlePay": "Google Pay",
+  "@googlePay": {
+    "description": "Google Pay payment method"
+  },
+  
+  "orderPlaced": "Order placed successfully!",
+  "@orderPlaced": {
+    "description": "Order placed success message"
+  },
+  
+  "orderNumber": "Order Number",
+  "@orderNumber": {
+    "description": "Order number label"
+  },
+  
+  "trackOrder": "Track Order",
+  "@trackOrder": {
+    "description": "Track order button text"
+  },
+  
+  "orderStatus": "Order Status",
+  "@orderStatus": {
+    "description": "Order status label"
+  },
+  
+  "pending": "Pending",
+  "@pending": {
+    "description": "Pending status"
+  },
+  
+  "confirmed": "Confirmed",
+  "@confirmed": {
+    "description": "Confirmed status"
+  },
+  
+  "processing": "Processing",
+  "@processing": {
+    "description": "Processing status"
+  },
+  
+  "shipped": "Shipped",
+  "@shipped": {
+    "description": "Shipped status"
+  },
+  
+  "delivered": "Delivered",
+  "@delivered": {
+    "description": "Delivered status"
+  },
+  
+  "cancelled": "Cancelled",
+  "@cancelled": {
+    "description": "Cancelled status"
+  },
+  
+  "reviews": "Reviews",
+  "@reviews": {
+    "description": "Reviews label"
+  },
+  
+  "writeReview": "Write Review",
+  "@writeReview": {
+    "description": "Write review button text"
+  },
+  
+  "rating": "Rating",
+  "@rating": {
+    "description": "Rating label"
+  },
+  
+  "filter": "Filter",
+  "@filter": {
+    "description": "Filter button text"
+  },
+  
+  "sort": "Sort",
+  "@sort": {
+    "description": "Sort button text"
+  },
+  
+  "sortBy": "Sort by",
+  "@sortBy": {
+    "description": "Sort by label"
+  },
+  
+  "priceHighToLow": "Price: High to Low",
+  "@priceHighToLow": {
+    "description": "Price high to low sort option"
+  },
+  
+  "priceLowToHigh": "Price: Low to High",
+  "@priceLowToHigh": {
+    "description": "Price low to high sort option"
+  },
+  
+  "newest": "Newest",
+  "@newest": {
+    "description": "Newest sort option"
+  },
+  
+  "popular": "Popular",
+  "@popular": {
+    "description": "Popular sort option"
+  },
+  
+  "topRated": "Top Rated",
+  "@topRated": {
+    "description": "Top rated sort option"
+  }
+}

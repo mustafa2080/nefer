@@ -1,0 +1,171 @@
+{
+  // 🏛️ Nefer E-commerce Launch Configurations
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🌐 Flutter Web (Chrome)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "args": [
+        "--web-port=3000",
+        "--web-renderer=html"
+      ],
+      "env": {
+        "FLUTTER_WEB_USE_SKIA": "false"
+      },
+      "console": "debugConsole"
+    },
+    {
+      "name": "🌐 Flutter Web (Edge)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "edge",
+      "args": [
+        "--web-port=3001",
+        "--web-renderer=html"
+      ],
+      "console": "debugConsole"
+    },
+    {
+      "name": "🤖 Flutter Android (Debug)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "args": [
+        "--flavor=development"
+      ],
+      "env": {
+        "FLUTTER_ENV": "development"
+      },
+      "console": "debugConsole"
+    },
+    {
+      "name": "🍎 Flutter iOS (Debug)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "args": [
+        "--flavor=development"
+      ],
+      "env": {
+        "FLUTTER_ENV": "development"
+      },
+      "console": "debugConsole"
+    },
+    {
+      "name": "🏭 Flutter (Production)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "args": [
+        "--release",
+        "--flavor=production"
+      ],
+      "env": {
+        "FLUTTER_ENV": "production"
+      },
+      "console": "debugConsole"
+    },
+    {
+      "name": "⚡ Dart Functions (Local)",
+      "type": "dart",
+      "request": "launch",
+      "program": "functions/bin/main.dart",
+      "cwd": "${workspaceFolder}/functions",
+      "env": {
+        "PORT": "8080",
+        "FIREBASE_PROJECT_ID": "nefer-dev",
+        "NODE_ENV": "development"
+      },
+      "console": "debugConsole"
+    },
+    {
+      "name": "🧪 Flutter Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "test/",
+      "args": [
+        "--coverage"
+      ],
+      "console": "debugConsole"
+    },
+    {
+      "name": "🧪 Functions Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "functions/test/",
+      "cwd": "${workspaceFolder}/functions",
+      "console": "debugConsole"
+    },
+    {
+      "name": "🔥 Firebase Emulators",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/firebase",
+      "args": [
+        "emulators:start",
+        "--only",
+        "auth,database,firestore,functions,hosting,storage"
+      ],
+      "console": "integratedTerminal",
+      "env": {
+        "FIREBASE_PROJECT_ID": "nefer-dev"
+      }
+    },
+    {
+      "name": "📱 Flutter Integration Tests",
+      "type": "dart",
+      "request": "launch",
+      "program": "integration_test/app_test.dart",
+      "args": [
+        "-d",
+        "chrome"
+      ],
+      "console": "debugConsole"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Full Development Environment",
+      "configurations": [
+        "⚡ Dart Functions (Local)",
+        "🌐 Flutter Web (Chrome)"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "development",
+        "order": 1
+      }
+    },
+    {
+      "name": "🔥 Firebase + Flutter Web",
+      "configurations": [
+        "🔥 Firebase Emulators",
+        "🌐 Flutter Web (Chrome)"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "development",
+        "order": 2
+      }
+    },
+    {
+      "name": "🧪 Run All Tests",
+      "configurations": [
+        "🧪 Flutter Tests",
+        "🧪 Functions Tests"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "testing",
+        "order": 1
+      }
+    }
+  ]
+}
